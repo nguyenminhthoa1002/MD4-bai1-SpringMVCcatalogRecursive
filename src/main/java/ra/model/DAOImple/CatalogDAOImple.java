@@ -19,15 +19,15 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         try {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_searchCatalogByName(?)}");
-            callSt.setString(1,searchName);
+            callSt.setString(1, searchName);
             ResultSet rs = callSt.executeQuery();
             listSearchCatalog = new ArrayList<>();
-            while (rs.next()){
+            while (rs.next()) {
                 Catalog cat = new Catalog();
-                cat.setCatalogID(rs.getInt("catalogId"));
+                cat.setCatalogID(rs.getInt("catalogID"));
                 cat.setCatalogName(rs.getString("catalogName"));
                 cat.setCatalogDescription(rs.getString("catalogDescription"));
-                cat.setCatalogParentID(rs.getInt("catalogParentID"));
+                cat.setCatalogParentID(rs.getInt("catalogParentId"));
                 cat.setCatalogParentName(rs.getString("catalogParentName"));
                 cat.setCatalogCreateDate(rs.getDate("catalogCreateDate"));
                 cat.setCatalogStatus(rs.getBoolean("catalogStatus"));
@@ -36,33 +36,87 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionDB.closeConnection(conn,callSt);
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return listSearchCatalog;
     }
 
     @Override
     public List<Catalog> getCatalogForCreate() {
-        Connection conn =null;
+        Connection conn = null;
         CallableStatement callSt = null;
         List<Catalog> listCatalogForCreate = null;
         try {
-             conn = ConnectionDB.openConnection();
-             callSt = conn.prepareCall("{call getCatalogForCreat()}");
-             ResultSet rs = callSt.executeQuery();
-             listCatalogForCreate = new ArrayList<>();
-             while (rs.next()){
-                 Catalog cat = new Catalog();
-                 cat.setCatalogID(rs.getInt("catalogId"));
-                 cat.setCatalogName(rs.getString("catalogName"));
-                 listCatalogForCreate.add(cat);
-             }
-        }catch (SQLException ex){
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call getCatalogForCreat()}");
+            ResultSet rs = callSt.executeQuery();
+            listCatalogForCreate = new ArrayList<>();
+            while (rs.next()) {
+                Catalog cat = new Catalog();
+                cat.setCatalogID(rs.getInt("catalogId"));
+                cat.setCatalogName(rs.getString("catalogName"));
+                listCatalogForCreate.add(cat);
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }finally {
-            ConnectionDB.closeConnection(conn,callSt);
+        } finally {
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return listCatalogForCreate;
+    }
+
+    @Override
+    public int getEndPage() {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        int totalCat = 0;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call proc_countTotalCatalog()}");
+            ResultSet rs = callSt.executeQuery();
+            if (rs.next()) {
+                totalCat = rs.getInt("count(*)");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionDB.closeConnection(conn, callSt);
+        }
+        int endPage = totalCat / 10;
+        if (totalCat % 3 != 0) {
+            endPage++;
+        }
+        return endPage;
+    }
+
+    @Override
+    public List<Catalog> getListPagingCatalog(int index) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        List<Catalog> listPagingCatalog = null;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call proc_phanTrang(?)}");
+            callSt.setInt(1,(index-1)*10);
+            ResultSet rs = callSt.executeQuery();
+            listPagingCatalog = new ArrayList<>();
+            while (rs.next()){
+                Catalog cat = new Catalog();
+                cat.setCatalogID(rs.getInt("catalogID"));
+                cat.setCatalogName(rs.getString("catalogName"));
+                cat.setCatalogDescription(rs.getString("catalogDescription"));
+                cat.setCatalogParentID(rs.getInt("catalogParentId"));
+                cat.setCatalogParentName(rs.getString("catalogParentName"));
+                cat.setCatalogCreateDate(rs.getDate("catalogCreateDate"));
+                cat.setCatalogStatus(rs.getBoolean("catalogStatus"));
+                listPagingCatalog.add(cat);
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        } finally {
+            ConnectionDB.closeConnection(conn,callSt);
+        }
+        return listPagingCatalog;
     }
 
     @Override
@@ -102,10 +156,10 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         try {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_getCatalogByID(?)}");
-            callSt.setInt(1,id);
+            callSt.setInt(1, id);
             ResultSet rs = callSt.executeQuery();
             cat = new Catalog();
-            if (rs.next()){
+            if (rs.next()) {
                 cat.setCatalogID(rs.getInt("catalogId"));
                 cat.setCatalogName(rs.getString("catalogName"));
                 cat.setCatalogDescription(rs.getString("catalogDescription"));
@@ -114,10 +168,10 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
                 cat.setCatalogCreateDate(rs.getDate("catalogCreateDate"));
                 cat.setCatalogStatus(rs.getBoolean("catalogStatus"));
             }
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionDB.closeConnection(conn,callSt);
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return cat;
     }
@@ -130,17 +184,17 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         try {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_insertCatalog(?,?,?,?,?)}");
-            callSt.setString(1,catalog.getCatalogName());
+            callSt.setString(1, catalog.getCatalogName());
             callSt.setString(2, catalog.getCatalogDescription());
-            callSt.setInt(3,catalog.getCatalogParentID());
-            callSt.setDate(4,new Date(catalog.getCatalogCreateDate().getTime()));
+            callSt.setInt(3, catalog.getCatalogParentID());
+            callSt.setDate(4, new Date(catalog.getCatalogCreateDate().getTime()));
             callSt.setBoolean(5, catalog.isCatalogStatus());
             callSt.executeUpdate();
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             result = false;
             ex.printStackTrace();
         } finally {
-            ConnectionDB.closeConnection(conn,callSt);
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return result;
     }
@@ -151,20 +205,20 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         CallableStatement callSt = null;
         boolean result = true;
         try {
-            conn= ConnectionDB.openConnection();
+            conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_updateCatalog(?,?,?,?,?,?)}");
-            callSt.setInt(1,catalog.getCatalogID());
+            callSt.setInt(1, catalog.getCatalogID());
             callSt.setString(2, catalog.getCatalogName());
             callSt.setString(3, catalog.getCatalogDescription());
-            callSt.setInt(4,catalog.getCatalogParentID());
-            callSt.setDate(5,new Date(catalog.getCatalogCreateDate().getTime()));
+            callSt.setInt(4, catalog.getCatalogParentID());
+            callSt.setDate(5, new Date(catalog.getCatalogCreateDate().getTime()));
             callSt.setBoolean(6, catalog.isCatalogStatus());
             callSt.executeUpdate();
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             result = false;
             ex.printStackTrace();
         } finally {
-            ConnectionDB.closeConnection(conn,callSt);
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return result;
     }
@@ -177,14 +231,15 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         try {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_deleteCatalog(?)}");
-            callSt.setInt(1,id);
+            callSt.setInt(1, id);
             callSt.executeUpdate();
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             result = false;
             ex.printStackTrace();
         } finally {
-            ConnectionDB.closeConnection(conn,callSt);
+            ConnectionDB.closeConnection(conn, callSt);
         }
         return result;
     }
+
 }

@@ -22,6 +22,16 @@ public class CatalogServiceImple implements ICatalogService<Catalog,Integer> {
     }
 
     @Override
+    public int getEndPage() {
+        return catalogDAO.getEndPage();
+    }
+
+    @Override
+    public List<Catalog> getListPagingCatalog(int index) {
+        return catalogDAO.getListPagingCatalog(index);
+    }
+
+    @Override
     public List<Catalog> findAll() {
         return catalogDAO.findAll();
     }

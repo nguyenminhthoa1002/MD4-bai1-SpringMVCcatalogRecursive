@@ -1,24 +1,31 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords"
+          content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/img/icons/icon-48x48.png"/>
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    <link rel="canonical" href="https://demo-basic.adminkit.io/"/>
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-	<link href="https://github.com/nguyenminhthoa1002/MD3_projectFinal/blob/master/src/main/webapp/css3/app.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/css/app.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 </head>
 
 <body>
@@ -39,7 +46,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item active">
-                    <a class="sidebar-link" href="#">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/catalogController/getAll">
                         <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
                     </a>
                 </li>
@@ -152,7 +159,8 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle"
+                                            <img src="<%=request.getContextPath()%>/resources/img/avatars/avatar-5.jpg"
+                                                 class="avatar img-fluid rounded-circle"
                                                  alt="Vanessa Tucker">
                                         </div>
                                         <div class="col-10 ps-2">
@@ -167,7 +175,8 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle"
+                                            <img src="<%=request.getContextPath()%>/resources/img/avatars/avatar-2.jpg"
+                                                 class="avatar img-fluid rounded-circle"
                                                  alt="William Harris">
                                         </div>
                                         <div class="col-10 ps-2">
@@ -181,7 +190,8 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle"
+                                            <img src="<%=request.getContextPath()%>/resources/img/avatars/avatar-4.jpg"
+                                                 class="avatar img-fluid rounded-circle"
                                                  alt="Christina Mason">
                                         </div>
                                         <div class="col-10 ps-2">
@@ -194,7 +204,8 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-2">
-                                            <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle"
+                                            <img src="<%=request.getContextPath()%>/resources/img/avatars/avatar-3.jpg"
+                                                 class="avatar img-fluid rounded-circle"
                                                  alt="Sharon Lessman">
                                         </div>
                                         <div class="col-10 ps-2">
@@ -218,7 +229,8 @@
                         </a>
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
+                            <img src="<%=request.getContextPath()%>/resources/img/avatars/avatar.jpg"
+                                 class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
                             <span class="text-dark">Chris Hung</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -244,16 +256,104 @@
             <div class="container-fluid p-0">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Demo Category Table</h3>
+                        <h3 class="card-title">Category Management Table</h3>
                         <nav class="navbar navbar-expand-lg bg-light">
                             <div class="container-fluid">
                                 <a class="navbar-brand" href="#">
-                                    <button type="button" class="btn btn-success">+ Add new Category</button>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#newCatalogModal">+ Add new Category
+                                    </button>
                                 </a>
-                                <form class="d-flex" role="search">
-                                    <input class="form-control me-2 fst-italic" type="search" placeholder="Enter category's name... "
-                                           aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
+
+                                <%--                                modal create new button--%>
+                                <!-- Modal -->
+                                <div class="modal fade" id="newCatalogModal" tabindex="-1"
+                                     aria-labelledby="newCatalogLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="newCatalogLabel">Create new catalog</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <form action="<%=request.getContextPath()%>/catalogController/create"
+                                                  method="post">
+                                                <div class="modal-body">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text"
+                                                              id="basic-addon1">Name</span>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Enter catalog's name"
+                                                               aria-label="catalogName" aria-describedby="basic-addon1"
+                                                               name="catalogName">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                          id="basic-addon2">Description</span>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Enter catalog's description"
+                                                               aria-label="catalogDescription"
+                                                               aria-describedby="basic-addon2"
+                                                               name="catalogDescription">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text" for="catalogParent">Catalog
+                                                            Parent</label>
+                                                        <select class="form-select" id="catalogParent"
+                                                                name="catalogParentID">
+                                                            <option value="0" selected>Choose...</option>
+                                                            <c:forEach items="${listCatalog}" var="catForCreate">
+                                                                <option value="${catForCreate.catalogID}"
+                                                                        name="catalogParentID">${catForCreate.catalogName}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                          id="basic-addon3">Create Date</span>
+                                                        <input type="date" class="form-control"
+                                                               placeholder="Enter catalog's description"
+                                                               aria-label="catalogDescription"
+                                                               aria-describedby="basic-addon3" name="catalogCreateDate">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                          id="catalogStatus">Catalog Status</span>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                               name="catalogStatus"
+                                                               id="catalogStatus1" value="true" checked>
+                                                        <label class="form-check-label" for="catalogStatus1">Hoạt
+                                                            động</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                               name="catalogStatus"
+                                                               id="catalogStatus2" value="false">
+                                                        <label class="form-check-label" for="catalogStatus2">Không hoạt
+                                                            động</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                    <input type="submit" name="action" value="Create"
+                                                           class="btn btn-primary"/>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%--                                end create new cat --%>
+                                <form class="d-flex" role="search"
+                                      action="<%=request.getContextPath()%>/catalogController/search">
+                                    <input class="form-control me-2 fst-italic" type="text"
+                                           placeholder="Enter category's name... "
+                                           aria-label="Search" name="searchName" id="search" oninput="myFunction()">
+                                    <input class="btn btn-outline-success" type="submit" value="Search" name="action"/>
                                 </form>
                             </div>
                         </nav>
@@ -263,156 +363,182 @@
                         <table id="example1" class="table table-bordered table-striped text-center">
                             <thead>
                             <tr>
-                                <th>Category ID</th>
+                                <th>ID</th>
                                 <th>Name</th>
-                                <th>Descripttion</th>
-                                <th>Created Date</th>
+                                <th>Description</th>
+                                <th>Catalog Parent</th>
+                                <th>Create Date</th>
+                                <th>Status</th>
                                 <th colspan="2">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Category 1</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Category 2</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Category 3</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Category 4</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Category 5</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Category 6</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Category 7</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Category 8</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Category 9</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Category 10</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
-                                </td>
-                                <td>28/10/2022</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            </tbody>
+                            <c:forEach items="${listCatalog}" var="cat">
+                                <tr>
+                                    <td>${cat.catalogID}</td>
+                                    <td>${cat.catalogName}</td>
+                                    <td>${cat.catalogDescription}</td>
+                                    <td>${cat.catalogParentName}</td>
+                                    <td><fmt:formatDate value="${cat.catalogCreateDate}" pattern="dd/MM/yyyy"/></td>
+                                    <td>${cat.catalogStatus?"Active":"Inactive"}</td>
+                                    <td>
+                                        <input type="hidden" name="catIdUpdate" id="catDeleteId"
+                                               value="${cat.catalogID}">
+                                        <input type="hidden" name="catNameUpdate" id="catNameUpdate"
+                                               value="${cat.catalogName}">
+                                        <input type="hidden" name="catDesUpdate" id="catDesUpdate"
+                                               value="${cat.catalogDescription}">
+                                        <input type="hidden" name="catPaIdUpdate" id="catPaIdUpdate"
+                                               value="${cat.catalogParentID}">
+                                        <input type="hidden" name="catCreateDateUpdate" id="catCreateDateUpdate"
+                                               value="${cat.catalogCreateDate}">
+                                        <input type="hidden" name="catStatusUpdate" id="catStatusUpdate"
+                                               value="${cat.catalogStatus}">
 
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#updateCatalogModal" data-bs-whatever="${cat.catalogID}"
+                                                id="updateCat">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+
+                                            <%--                                            -------------------------------modal update-------------------------------%>
+                                        <div class="modal fade" id="updateCatalogModal" tabindex="-1"
+                                             aria-labelledby="updateCatalogLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="updateCatalogLabel">Update
+                                                            catalog</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="<%=request.getContextPath()%>/catalogController/update"
+                                                          method="post">
+
+                                                        <div class="modal-body">
+                                                            <div class="input-group mb-3">
+                                                        <span class="input-group-text"
+                                                              id="basic-addon7">Catalog ID</span>
+                                                                <input type="text" class="form-control"
+                                                                       aria-label="catalogName"
+                                                                       aria-describedby="basic-addon1"
+                                                                       name="catalogID" id="catalogIdUpdate" readonly >
+                                                            </div>
+                                                            <div class="input-group mb-3">
+                                                        <span class="input-group-text"
+                                                              id="basic-addon4">Catalog Name</span>
+                                                                <input type="text" class="form-control"
+                                                                       aria-label="catalogName"
+                                                                       aria-describedby="basic-addon1"
+                                                                       name="catalogName" id="catalogNameUpdate">
+                                                            </div>
+                                                            <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                          id="basic-addon5">Catalog Description</span>
+                                                                <input type="text" class="form-control"
+                                                                       aria-label="catalogDescription"
+                                                                       aria-describedby="basic-addon2"
+                                                                       name="catalogDescription"
+                                                                       id="catalogDescriptionUpdate">
+                                                            </div>
+                                                            <div class="input-group mb-3">
+                                                                <label class="input-group-text"
+                                                                       for="catalogParentIDUpdate">Catalog
+                                                                    Parent</label>
+                                                                <select class="form-select" id="catalogParentIDUpdate"
+                                                                        name="catalogParentID">
+                                                                    <option value="${cat.catalogParentID}"
+                                                                            selected>${cat.catalogParentName}</option>
+                                                                    <c:forEach items="${listCatalog}"
+                                                                               var="catForCreate">
+                                                                        <option value="${catForCreate.catalogID}"
+                                                                                name="catalogParentID">${catForCreate.catalogName}</option>
+                                                                    </c:forEach>
+                                                                </select>
+                                                            </div>
+                                                            <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                          id="basic-addon6">Create Date</span>
+                                                                <input type="date" class="form-control"
+                                                                       aria-label="catalogDescription"
+                                                                       aria-describedby="basic-addon3"
+                                                                       name="catalogCreateDate"
+                                                                       id="catalogCreateDateUpdate">
+                                                            </div>
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text" id="catalogStatusUpdate">Catalog Status</span>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <c:choose>
+                                                                    <c:when test="${cat.catalogStatus}">
+                                                                        <input type="radio" name="catalogStatus"
+                                                                               id="active" value="true" checked/>
+                                                                        <label for="active">Hoạt động</label>
+                                                                        <input type="radio" name="catalogStatus"
+                                                                               id="inactive" value="false"/>
+                                                                        <label for="inactive">Không hoạt động</label>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <input type="radio" name="catalogStatus"
+                                                                               id="active" value="true"/>
+                                                                        <label for="active">Hoạt động</label>
+                                                                        <input type="radio" name="catalogStatus"
+                                                                               id="inactive" value="false" checked/>
+                                                                        <label for="inactive">Không hoạt động</label>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                Close
+                                                            </button>
+                                                            <input type="submit" name="action" value="Update"
+                                                                   class="btn btn-primary"/>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <%--                                                -------------------------modal delete---------------------------------%>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" id="deleteCat"
+                                                data-bs-whatever="${cat.catalogName}"><i class="bi bi-trash3"></i>
+                                        </button>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="<%=request.getContextPath()%>/catalogController/delete">
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control"
+                                                                       id="recipient-name" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close
+                                                            </button>
+                                                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                                                            <input type="hidden" name="catalogID" id="catalogID">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <%--                                            -----------------------end modal delete-------------------%>
+
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
                         </table>
                     </div>
                     <nav aria-label="Page navigation example ">
@@ -420,10 +546,13 @@
                             <li class="page-item disabled">
                                 <a class="page-link">Previous</a>
                             </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
+                            <c:forEach begin="1" end="${endPage}" var="i">
+                                <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/catalogController/displayPages?index=${i}">${i}</a></li>
+                            </c:forEach>
+<%--                            <li class="page-item active"><a class="page-link" href="#">1</a></li>--%>
+<%--                            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
+<%--                            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
+<%--                            <li class="page-item">--%>
                                 <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
@@ -465,7 +594,7 @@
     </div>
 </div>
 
-<script src="js/app.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/app.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -689,6 +818,70 @@
     });
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).on('click', 'table #deleteCat', function () {
+        let catId = $(this).parent().find('#catDeleteId').val();
+        $('#catalogID').val(catId);
+    });
+    $(document).on('click', 'table #updateCat', function () {
+        let catId = $(this).parent().find('#catDeleteId').val();
+        let catName = $(this).parent().find('#catNameUpdate').val();
+        let catDes = $(this).parent().find('#catDesUpdate').val();
+        let catPaId = $(this).parent().find('#catPaIdUpdate').val();
+        let catDate = $(this).parent().find('#catCreateDateUpdate').val();
+        let catStatus = $(this).parent().find('#catStatusUpdate').val();
+        $('#catalogIdUpdate').val(catId);
+        $('#catalogNameUpdate').val(catName);
+        $('#catalogDescriptionUpdate').val(catDes);
+        $('#catalogParentIDUpdate').val(catPaId);
+        $('#catalogCreateDateUpdate').val(catDate);
+        $('#catalogStatusUpdate').val(catStatus);
+
+        <%--$.ajax({--%>
+        <%--    type: 'GET',--%>
+        <%--    url: '${pageContext.request.contextPath}/catalogController/getByIdForUpdate?catIdUpdate=' + catId,--%>
+        <%--    success: function (catalogUpdate) {--%>
+        <%--        console.log(catalogUpdate);--%>
+        <%--        $('#catalogIdUpdate').val(catalogUpdate.catalogID);--%>
+        <%--        $('#catalogNameUpdate').val(catalogUpdate.catalogName);--%>
+        <%--        $('#catalogDescriptionUpdate').val(catalogUpdate.catalogDescription);--%>
+        <%--        $('#catalogParentIDUpdate').val(catalogUpdate.catalogParentID);--%>
+        <%--        $('#catalogCreateDateUpdate').val(catalogUpdate.catalogCreateDate)--%>
+        <%--        $('#catalogStatusUpdate').val(catalogUpdate.catalogStatus);--%>
+        <%--    }--%>
+        <%--});--%>
+    });
+</script>
+
+<script>
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Xóa ' + recipient
+        modalBodyInput.value = 'Bạn chắc chắn muốn xóa danh mục ' + recipient + '?'
+    })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script>
+    function myFunction(){
+        var searchName = document.getElementById("search").value;
+        $('#search').val(searchName);
+    }
+</script>
 </body>
 
 </html>

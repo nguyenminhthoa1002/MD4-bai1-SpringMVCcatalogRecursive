@@ -19,10 +19,14 @@ public class CatalogController {
     private ICatalogService catalogService;
 
     @GetMapping("getAll")
-    public ModelAndView getAllCatalog(){
+    public ModelAndView getAllCatalog(Model model){
         ModelAndView mav = new ModelAndView("category");
-        List<Catalog> listCatalog = catalogService.findAll();
+        List<Catalog> listCatalog = catalogService.getListPagingCatalog(1);
         mav.addObject("listCatalog",listCatalog);
+        Catalog catNew = new Catalog();
+        model.addAttribute("catNew",catNew);
+        int endPage = catalogService.getEndPage();
+        model.addAttribute("endPage",endPage);
         return mav;
     }
 
@@ -62,9 +66,10 @@ public class CatalogController {
         return "updateCatalog";
     }
 
+
     @PostMapping("update")
-    public String update(Catalog catUpdate){
-        boolean result = catalogService.update(catUpdate);
+    public String update(Catalog cat){
+        boolean result = catalogService.update(cat);
         if (result){
             return "redirect:getAll";
         } else {
@@ -80,5 +85,27 @@ public class CatalogController {
         } else {
             return "error";
         }
+    }
+
+    @GetMapping("search")
+    public ModelAndView searchByName(Model model, String searchName){
+        ModelAndView mav = new ModelAndView("category");
+        List<Catalog> listSearchCatalog = catalogService.searchByName(searchName);
+        model.addAttribute("listCatalog",listSearchCatalog);
+        Catalog catNew = new Catalog();
+        model.addAttribute("catNew",catNew);
+        return mav;
+    }
+
+    @GetMapping("displayPages")
+    public ModelAndView displayPages(Model model, int index){
+        ModelAndView mav = new ModelAndView("category");
+        List<Catalog> listCatalogForPage = catalogService.getListPagingCatalog(index);
+        model.addAttribute("listCatalog", listCatalogForPage);
+        Catalog catNew = new Catalog();
+        model.addAttribute("catNew",catNew);
+        int endPage = catalogService.getEndPage();
+        model.addAttribute("endPage",endPage);
+        return mav;
     }
 }
