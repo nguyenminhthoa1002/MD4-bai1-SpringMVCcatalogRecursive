@@ -116,6 +116,7 @@ public class CatalogController {
         model.addAttribute("endPage",endPage);
         Catalog catNew = new Catalog();
         model.addAttribute("catNew",catNew);
+        model.addAttribute("searchName",searchName);
         return mav;
     }
 }
