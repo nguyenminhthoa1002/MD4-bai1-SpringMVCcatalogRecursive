@@ -45,12 +45,12 @@
                         <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="<%=request.getContextPath()%>/catalogController/getAll">
                         <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a class="sidebar-link" href="<%=request.getContextPath()%>/catalogController/getAll">
                         <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Color</span>
                     </a>
@@ -261,12 +261,12 @@
             <div class="container-fluid p-0">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Category Management Table</h3>
+                        <h3 class="card-title">Color Management Table</h3>
                         <nav class="navbar navbar-expand-lg bg-light">
                             <div class="container-fluid">
                                 <a class="navbar-brand" href="#">
                                     <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#newCatalogModal">+ Add new Category
+                                            data-bs-target="#newCatalogModal">+ Add new Color
                                     </button>
                                 </a>
 
@@ -281,7 +281,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
-                                            <form action="<%=request.getContextPath()%>/catalogController/createValidate"
+                                            <form action="<%=request.getContextPath()%>/catalogController/create"
                                                   method="post">
                                                 <div class="modal-body">
                                                     <div class="input-group mb-3">

@@ -83,7 +83,7 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
             ConnectionDB.closeConnection(conn, callSt);
         }
         int endPage = totalCat / 10;
-        if (totalCat % 3 != 0) {
+        if (totalCat % 10 != 0) {
             endPage++;
         }
         return endPage;

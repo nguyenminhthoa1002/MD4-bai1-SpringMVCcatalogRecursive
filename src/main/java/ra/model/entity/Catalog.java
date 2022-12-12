@@ -2,6 +2,7 @@ package ra.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Catalog {
