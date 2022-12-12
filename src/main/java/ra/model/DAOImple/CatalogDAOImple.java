@@ -153,7 +153,7 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_phanTrangSearch(?,?)}");
             callSt.setString(1,searchName);
-            callSt.setInt(2,index);
+            callSt.setInt(2,(index - 1) * 10);
             ResultSet rs = callSt.executeQuery();
             listCatForSearchPage = new ArrayList<>();
             while (rs.next()){

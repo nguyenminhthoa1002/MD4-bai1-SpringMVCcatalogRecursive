@@ -96,18 +96,26 @@ public class CatalogController {
         model.addAttribute("catNew",catNew);
         int endPage = catalogService.getEndPageForSearch(searchName);
         model.addAttribute("endPage",endPage);
+        model.addAttribute("searchName",searchName);
         return mav;
     }
 
     @GetMapping("displayPages")
-    public ModelAndView displayPages(Model model, int index){
+    public ModelAndView displayPages(Model model, int index, String searchName){
         ModelAndView mav = new ModelAndView("category");
-        List<Catalog> listCatalogForPage = catalogService.getListPagingCatalog(index);
+        List<Catalog> listCatalogForPage = null;
+        int endPage = 0;
+        if (!searchName.equals("")){
+            listCatalogForPage =catalogService.getCatalogForSearchPages(searchName,index);
+            endPage = catalogService.getEndPageForSearch(searchName);
+        } else {
+            listCatalogForPage = catalogService.getListPagingCatalog(index);
+            endPage = catalogService.getEndPage();
+        }
         model.addAttribute("listCatalog", listCatalogForPage);
+        model.addAttribute("endPage",endPage);
         Catalog catNew = new Catalog();
         model.addAttribute("catNew",catNew);
-        int endPage = catalogService.getEndPage();
-        model.addAttribute("endPage",endPage);
         return mav;
     }
 }

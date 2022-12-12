@@ -352,7 +352,7 @@
                                       action="<%=request.getContextPath()%>/catalogController/search">
                                     <input class="form-control me-2 fst-italic" type="text"
                                            placeholder="Enter category's name... "
-                                           aria-label="Search" name="searchName" id="search" oninput="myFunction()">
+                                           aria-label="Search" name="searchName" id="search">
                                     <input class="btn btn-outline-success" type="submit" value="Search" name="action"/>
                                 </form>
                             </div>
@@ -547,7 +547,7 @@
                                 <a class="page-link">Previous</a>
                             </li>
                             <c:forEach begin="1" end="${endPage}" var="i">
-                                <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/catalogController/displayPages?index=${i}">${i}</a></li>
+                                <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/catalogController/displayPages?index=${i}&&searchName=${searchName}">${i}</a></li>
                             </c:forEach>
 <%--                            <li class="page-item active"><a class="page-link" href="#">1</a></li>--%>
 <%--                            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
@@ -876,12 +876,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-<script>
-    function myFunction(){
-        var searchName = document.getElementById("search").value;
-        $('#search').val(searchName);
-    }
-</script>
 </body>
 
 </html>
