@@ -9,4 +9,6 @@ public interface ICatalogDAO<T,V> extends IShopDAO<T,V>{
     List<T> getCatalogForCreate();
     int getEndPage();
     List<Catalog> getListPagingCatalog(int index);
+    int getEndPageForSearch(String searchName);
+    List<Catalog> getCatalogForSearchPages(String searchName, int index);
 }

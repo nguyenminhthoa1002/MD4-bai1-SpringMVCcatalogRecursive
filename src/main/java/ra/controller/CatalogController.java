@@ -90,10 +90,12 @@ public class CatalogController {
     @GetMapping("search")
     public ModelAndView searchByName(Model model, String searchName){
         ModelAndView mav = new ModelAndView("category");
-        List<Catalog> listSearchCatalog = catalogService.searchByName(searchName);
+        List<Catalog> listSearchCatalog = catalogService.getCatalogForSearchPages(searchName,1);
         model.addAttribute("listCatalog",listSearchCatalog);
         Catalog catNew = new Catalog();
         model.addAttribute("catNew",catNew);
+        int endPage = catalogService.getEndPageForSearch(searchName);
+        model.addAttribute("endPage",endPage);
         return mav;
     }
 

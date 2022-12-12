@@ -9,4 +9,6 @@ public interface ICatalogService<T,V> extends IShopService<T,V>{
     List<T> getCatalogForCreate();
     int getEndPage();
     List<Catalog> getListPagingCatalog(int index);
+    int getEndPageForSearch(String searchName);
+    List<Catalog> getCatalogForSearchPages(String searchName, int index);
 }

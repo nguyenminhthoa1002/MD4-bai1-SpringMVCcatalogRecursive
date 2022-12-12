@@ -32,6 +32,16 @@ public class CatalogServiceImple implements ICatalogService<Catalog,Integer> {
     }
 
     @Override
+    public int getEndPageForSearch(String searchName) {
+        return catalogDAO.getEndPageForSearch(searchName);
+    }
+
+    @Override
+    public List<Catalog> getCatalogForSearchPages(String searchName, int index) {
+        return catalogDAO.getCatalogForSearchPages(searchName,index);
+    }
+
+    @Override
     public List<Catalog> findAll() {
         return catalogDAO.findAll();
     }

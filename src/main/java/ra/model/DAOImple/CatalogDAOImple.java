@@ -97,10 +97,10 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
         try {
             conn = ConnectionDB.openConnection();
             callSt = conn.prepareCall("{call proc_phanTrang(?)}");
-            callSt.setInt(1,(index-1)*10);
+            callSt.setInt(1, (index - 1) * 10);
             ResultSet rs = callSt.executeQuery();
             listPagingCatalog = new ArrayList<>();
-            while (rs.next()){
+            while (rs.next()) {
                 Catalog cat = new Catalog();
                 cat.setCatalogID(rs.getInt("catalogID"));
                 cat.setCatalogName(rs.getString("catalogName"));
@@ -111,12 +111,68 @@ public class CatalogDAOImple implements ICatalogDAO<Catalog, Integer> {
                 cat.setCatalogStatus(rs.getBoolean("catalogStatus"));
                 listPagingCatalog.add(cat);
             }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionDB.closeConnection(conn, callSt);
+        }
+        return listPagingCatalog;
+    }
+
+    @Override
+    public int getEndPageForSearch(String searchName) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        int totalCatSearch = 0;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call Proc_countCatalogInListSearch(?)}");
+            callSt.setString(1, searchName);
+            ResultSet rs = callSt.executeQuery();
+            if (rs.next()) {
+                totalCatSearch = rs.getInt("count(*)");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionDB.closeConnection(conn, callSt);
+        }
+        int endPage = totalCatSearch / 10;
+        if (totalCatSearch % 10 != 0) {
+            endPage++;
+        }
+        return endPage;
+    }
+
+    @Override
+    public List<Catalog> getCatalogForSearchPages(String searchName, int index) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        List<Catalog> listCatForSearchPage = null;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call proc_phanTrangSearch(?,?)}");
+            callSt.setString(1,searchName);
+            callSt.setInt(2,index);
+            ResultSet rs = callSt.executeQuery();
+            listCatForSearchPage = new ArrayList<>();
+            while (rs.next()){
+                Catalog cat = new Catalog();
+                cat.setCatalogID(rs.getInt("catalogID"));
+                cat.setCatalogName(rs.getString("catalogName"));
+                cat.setCatalogDescription(rs.getString("catalogDescription"));
+                cat.setCatalogParentID(rs.getInt("catalogParentId"));
+                cat.setCatalogParentName(rs.getString("catalogParentName"));
+                cat.setCatalogCreateDate(rs.getDate("catalogCreateDate"));
+                cat.setCatalogStatus(rs.getBoolean("catalogStatus"));
+                listCatForSearchPage.add(cat);
+            }
         } catch (SQLException ex){
             ex.printStackTrace();
         } finally {
             ConnectionDB.closeConnection(conn,callSt);
         }
-        return listPagingCatalog;
+        return listCatForSearchPage;
     }
 
     @Override
